@@ -1,0 +1,12 @@
+kind: Service
+apiVersion: v1
+metadata:
+  name: go-fiber-order-api
+spec:
+  selector:
+    app: go-fiber-order-api
+  ports:
+    - protocol: TCP
+      port: 3000
+      nodePort: 30274
+  type: NodePort
