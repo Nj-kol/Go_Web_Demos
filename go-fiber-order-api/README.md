@@ -2,6 +2,21 @@
 
 ## Docker
 
+#### The database
+
+```bash
+docker container run -d -p 31433:1433 \
+--name mssql17-standalone \
+--network sandbox \
+-e "ACCEPT_EULA=Y" \
+-e "SA_PASSWORD=@mssql2017" \
+-v myssql17-data:/var/opt/mssql \
+-v ${HOME}/volumes/mssql/2017:/opt/mssql17 \
+mcr.microsoft.com/mssql/server:2017-latest
+```
+
+#### The application
+
 **Build the docker image**
 
 ```bash
@@ -43,3 +58,10 @@ kubectl get svc
 // Teardown
 kubectl delete -f .
 ```
+
+## References
+
+https://www.youtube.com/watch?v=dpx6hpr-wE8
+
+https://dev.to/koddr/build-a-restful-api-on-go-fiber-postgresql-jwt-and-swagger-docs-in-isolated-docker-containers-475j
+
